@@ -43,7 +43,7 @@ body{
     border:none;
     box-shadow: 2.5px 2.5px 2.5px grey;
 }
-.login-btn:hover, .add-btn:hover{
+.login-btn:hover, .add-btn:hover, .submit-btn:hover{
     background-color: rgb(213, 213, 213);
 }
 img{
@@ -117,6 +117,24 @@ img{
     font-size: 30px;
   }
   #Checkbox{
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
+  }
+  .modal-title{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 10px;
+  }
+  .checkbox{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  .submit-btn{
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid pink;
+    border-radius: 7px;
+    font-size: 30px;
+    color:rgb(107, 41, 195);
   }

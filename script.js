@@ -71,9 +71,14 @@ function bookCard(){
             myLibrary.splice(myLibrary.indexOf(book), 1);
         })
         readBtn.addEventListener("click", ()=>{
-            readBtn.style.backgroundColor = "yellow";
-            readBtn.textContent = "Not Read";
+            if(readBtn.textContent == "Not Read"){
+                readBtn.style.backgroundColor = "rgb(107, 41, 195)";
+                readBtn.textContent = "Read";
+            }
+            else{
+                readBtn.style.backgroundColor = "yellow";
+                readBtn.textContent = "Not Read";
+            }
         })
     })
-
 }

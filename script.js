@@ -2,6 +2,7 @@ const addBtn = document.querySelector('.add-btn');
 const submitBtn = document.querySelector('.submit-btn');
 const modal = document.getElementById("myModal");
 const form = document.getElementById("input-form");
+const cardGrid = document.querySelector('.card-grid');
 
 let myLibrary = [];
 addBtn.addEventListener("click", bookModal);
@@ -33,7 +34,13 @@ function addBookToLibrary(event){
     let addedBook = new Book(title.value, author.value, pages.value, read.checked);
     myLibrary.push(addedBook);
     modal.style.display = "none";
-    myLibrary.forEach(book => {
+    bookCard(title, author, pages, read);
+    form.reset();
+    return
+}
+function bookCard(){
+    cardGrid.innerHTML = '';
+    myLibrary.forEach(book =>{
         const cardDiv = document.createElement('div');
         cardDiv.className = "card";
         const titleP = document.createElement('p');
@@ -52,22 +59,21 @@ function addBookToLibrary(event){
         removeBtn.className = "remove-btn";
         removeBtn.textContent = "Remove";
     
-        const parentDiv = document.querySelector('.card-grid');
-        parentDiv.appendChild(cardDiv);
+        cardGrid.appendChild(cardDiv);
         cardDiv.appendChild(titleP);
         cardDiv.appendChild(authorP);
         cardDiv.appendChild(pagesP);
         cardDiv.appendChild(readBtn);
         cardDiv.appendChild(removeBtn);
+
         removeBtn.addEventListener("click", ()=> {
-            parentDiv.removeChild(cardDiv);
+            cardGrid.removeChild(cardDiv);
             myLibrary.splice(myLibrary.indexOf(book), 1);
         })
         readBtn.addEventListener("click", ()=>{
             readBtn.style.backgroundColor = "yellow";
             readBtn.textContent = "Not Read";
-        } )
-    });
-    form.reset();
-    return
+        })
+    })
+
 }

@@ -89,5 +89,22 @@ function bookCard(){
                 book.read = false;
             }
         })
+        readBtn.addEventListener("mouseenter", ()=>{
+            if(book.read == false){
+                readBtn.style.backgroundColor = "rgb(101, 32, 32)";
+            }
+            else{
+                readBtn.style.backgroundColor = "rgb(70, 26, 127)";
+            }
+        })
+        readBtn.addEventListener("mouseleave", ()=>{
+            if(book.read == false){
+                readBtn.style.backgroundColor = "red";
+            }
+            else{
+                readBtn.style.backgroundColor = "rgb(107, 41, 195)";
+            }
+        })
+
     })
 }

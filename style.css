@@ -157,7 +157,6 @@ body{
   }
   .read-btn{
     background-color: rgb(107, 41, 195);
-    color: white;
   }
   .read-btn:hover{
     background-color: rgb(70, 26, 127);

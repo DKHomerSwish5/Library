@@ -1,13 +1,12 @@
 const addBtn = document.querySelector('.add-btn');
-const submitBtn = document.querySelector('.submit-btn');
 const modal = document.getElementById("myModal");
 const form = document.getElementById("input-form");
 const cardGrid = document.querySelector('.card-grid');
 
 let myLibrary = [];
 addBtn.addEventListener("click", bookModal);
-submitBtn.addEventListener("click", addBookToLibrary);
 window.addEventListener("click", closeModal);
+form.addEventListener("submit",addBookToLibrary);
 
 function bookModal(){
     modal.style.display = "block";
@@ -54,7 +53,14 @@ function bookCard(){
         pagesP.textContent = `${book.pages}`;
         const readBtn = document.createElement('button');
         readBtn.className = "read-btn";
-        readBtn.textContent = "Read";
+        if(book.read == true){
+            readBtn.textContent = "Read";
+        }
+        else{
+            readBtn.textContent = "Not Read";
+            readBtn.style.backgroundColor = "red";
+            readBtn.style.color = "black";
+        }
         const removeBtn = document.createElement('button');
         removeBtn.className = "remove-btn";
         removeBtn.textContent = "Remove";
@@ -71,13 +77,16 @@ function bookCard(){
             myLibrary.splice(myLibrary.indexOf(book), 1);
         })
         readBtn.addEventListener("click", ()=>{
-            if(readBtn.textContent == "Not Read"){
+            if(book.read == false){
                 readBtn.style.backgroundColor = "rgb(107, 41, 195)";
                 readBtn.textContent = "Read";
+                book.read = true;
             }
             else{
-                readBtn.style.backgroundColor = "yellow";
+                readBtn.style.backgroundColor = "red";
+                readBtn.style.color = "black";
                 readBtn.textContent = "Not Read";
+                book.read = false;
             }
         })
     })
